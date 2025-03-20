@@ -1,0 +1,8 @@
+Estimaciones de tiempo:
+- Configuracion del back y desarrollo de los endpoints -> 2 horas
+- Desarrollo de UI responsive -> 4 horas 
+- Integracion con el back y logica -> 2 horas
+
+
+- Configuracion del back y desarrollo de los endpoints:
+    Terminado en el tiempo estimado.
