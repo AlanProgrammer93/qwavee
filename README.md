@@ -1,15 +1,17 @@
 # 🌟 Desafío- Desarrollador Fullstack.
 
 ## Configuracion del servidor para ejecutar en local
-- Opcional: crear archivo .env y configurar el puerto con la variable PORT
+- Dentro de la carpeta "server":
+- Opcional: crear archivo .env y configurar el puerto de escucha. ej. PORT=5000
 - Instalar dependencias con "npm i"
-- Ejecutar proyecto con "npn run dev" o "npm start"
+- Ejecutar proyecto con "npm run dev" o "npm start"
 
 
-## Configuracion del front
-- Permitir que los usuarios logueados califiquen las recetas.
-- Que cada receta permita subir una imagen
-- Publica tu aplicación (Deploy)
+## Configuracion del front para ejecutar en local
+- Dentro de la carpeta "client":
+- Instalar dependencias con "npm i"
+- Opcional: puedes editar la ruta del servidor en el archivo "src/utils/axios". Actualmente esta apuntando a un servidor en render.
+- Ejecutar proyecto con "npm run dev"
 
 
 ## Deploy:
@@ -20,4 +22,4 @@
 ## Endpoints:
 - GET: https://qwavee.onrender.com/transaction
 - POST: https://qwavee.onrender.com/transaction
-- DELETE: https://qwavee.onrender.com/transaction:id
+- DELETE: https://qwavee.onrender.com/transaction/:id

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-.blur {
+.custom_blur {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,4 +8,9 @@
   background: rgba(255, 255, 255, 0.768);
   bottom: 0;
   z-index: 9999;
+}
+
+:root {
+  --color-primary: deepskyblue;
+  --color-primary-dark: rgb(8, 151, 199);
 }

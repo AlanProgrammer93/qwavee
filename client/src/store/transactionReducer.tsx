@@ -16,13 +16,21 @@ const initialState: TransactionsState = {
 
 export const fetchTransactions = createAsyncThunk<Transaction[]>("transactions/fetchTransactions", async () => {
     const { data } = await clientAxios.get("/transaction");
+
     return data.transactions;
 });
 
-const recipeSlice = createSlice({
+const transactionSlice = createSlice({
     name: "transactions",
     initialState,
-    reducers: {},
+    reducers: {
+        updateTransactions: (state, action) => {
+            state.transactions = [...state.transactions, action.payload]
+        },
+        deleteTransaction: (state, action) => {
+            state.transactions = state.transactions.filter(tran => tran.id !== action.payload)
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchTransactions.pending, (state) => {
@@ -31,10 +39,7 @@ const recipeSlice = createSlice({
             })
             .addCase(fetchTransactions.fulfilled, (state, action) => {
                 state.loading = false;
-
-                if (JSON.stringify(state.transactions) !== JSON.stringify(action.payload)) {
-                    state.transactions = action.payload;
-                }
+                state.transactions = action.payload;
             })
             .addCase(fetchTransactions.rejected, (state, action) => {
                 state.loading = false;
@@ -43,4 +48,6 @@ const recipeSlice = createSlice({
     },
 });
 
-export default recipeSlice.reducer;
+export const { updateTransactions, deleteTransaction } = transactionSlice.actions;
+
+export default transactionSlice.reducer;

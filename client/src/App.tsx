@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { ToastContainer } from 'react-toastify';
 import Cards from './components/Cards'
 import Graphic from './components/Graphic'
 import Table from './components/Table'
@@ -10,17 +11,13 @@ import Spinner from './components/Spinner';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>()
-
+  const { loading } = useSelector((state: RootState) => state.transactions);
   const [modalForm, setModalForm] = useState(false)
-  const { transactions, loading } = useSelector((state: RootState) => state.transactions);
-  console.log(transactions);
-  console.log(loading);
-
 
   useEffect(() => {
     dispatch(fetchTransactions());
   }, []);
-
+  
   return (
     <div className='flex flex-col items-center min-h-screen bg-gray-100 gap-5'>
       {
@@ -28,7 +25,7 @@ function App() {
           : (
             <>
               <button onClick={() => setModalForm(true)}
-                className="fixed w-[80%] px-4 py-2 bg-blue-500  text-white rounded-lg hover:bg-blue-600 mt-5 cursor-pointer"
+                className="fixed text-lg w-[80%] px-4 py-2 bg-[color:var(--color-primary-dark)] text-white rounded-lg hover:bg-[color:var(--color-primary)] mt-4 cursor-pointer"
               >
                 Nueva Transaccion
               </button>
@@ -41,6 +38,16 @@ function App() {
       {
         modalForm && <ModalForm setModalForm={setModalForm} />
       }
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        theme="dark"
+        style={{ zIndex: '999999' }}
+      />
     </div>
   )
 }

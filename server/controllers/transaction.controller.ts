@@ -3,6 +3,7 @@ import db from "../config/database";
 
 export const create = async (req: Request, res: Response): Promise<Response> => {
     const { type, category, amount } = req.body;
+    
     if (!type || !category || !amount) {
         return res.status(400).json({ message: "Todos los campos son obligatorios" });
     }
@@ -11,12 +12,13 @@ export const create = async (req: Request, res: Response): Promise<Response> => 
             [type, category, amount, new Date().toISOString().split('T')[0]],
             function (err: any) {
                 if (err) return res.status(500).json({ message: "Ocurrio un problema al crear transaccion." });
+                
+                return res.status(201).json({
+                    message: "Transaccion Creada Correctamente.",
+                    transaction: { id: this.lastID, type, category, amount: parseInt(amount), date: new Date().toISOString().split('T')[0] }
+                });
             }
         );
-
-        return res.status(201).json({
-            message: "Transaccion Creada Correctamente."
-        });
     } catch (error) {
         return res.status(500).json({
             message: "Ocurrio un problema en el servidor."

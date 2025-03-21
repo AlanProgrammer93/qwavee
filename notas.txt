@@ -4,5 +4,14 @@ Estimaciones de tiempo:
 - Integracion con el back y logica -> 2 horas
 
 
+Tiempo de trabajo:
 - Configuracion del back y desarrollo de los endpoints:
     Terminado en el tiempo estimado.
+- Desarrollo de UI responsive e Integracion con el back y logica:
+    Me llevo mas del tiempo estimado, como 2 horas mas. Tuve una pequeña perdida de 
+    tiempo con la instalacion de tailwind y tambien trate de usar React Query pero al final 
+    decidi hacerlo con Redux Toolkit.
+- En mi estimacion inicial no contemple la eliminacion de transacciones. Tambien dedique algo de 
+    tiempo para optimizar la aplicacion con useCallback, useMemo y memo. Estas tareas me llevo 1 hora mas.
+
+
