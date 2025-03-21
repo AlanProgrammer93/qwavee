@@ -16,7 +16,7 @@
 
 ## Deploy:
 - [Enlace del deploy back](https://qwavee.onrender.com)
-- [Enlace del deploy front](https://desafio-terrand.vercel.app/)
+- [Enlace del deploy front](https://qwavee.vercel.app/)
 
 
 ## Endpoints:

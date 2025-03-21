@@ -23,9 +23,9 @@ const Cards = () => {
 
     return (
         <div className="mt-18 w-[90%] grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-3 gap-2">
-            <Card title='Balance Actual' total={availableAmount} color='deepskyblue' />
-            <Card title='Ingresos' total={totalIncome} color='green' />
-            <Card title='Gastos' total={totalExpense} color='red' />
+            <Card title='Balance Actual' total={availableAmount} />
+            <Card title='Ingresos' total={totalIncome} />
+            <Card title='Gastos' total={totalExpense} />
         </div>
     )
 }
