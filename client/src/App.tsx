@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchTransactions());
   }, []);
-  
+
   return (
     <div className='flex flex-col items-center min-h-screen bg-gray-100 gap-5'>
       {
@@ -25,7 +25,7 @@ function App() {
           : (
             <>
               <button onClick={() => setModalForm(true)}
-                className="fixed text-lg w-[80%] px-4 py-2 bg-[color:var(--color-primary-dark)] text-white rounded-lg hover:bg-[color:var(--color-primary)] mt-4 cursor-pointer"
+                className="fixed z-999 text-lg w-[80%] px-4 py-2 bg-[color:var(--color-primary-dark)] text-white rounded-lg hover:bg-[color:var(--color-primary)] mt-4 cursor-pointer"
               >
                 Nueva Transaccion
               </button>

@@ -2,6 +2,7 @@ import { memo, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 import { RootState } from '../store';
+import { motion } from 'framer-motion'
 
 type Transaction = {
     id: number;
@@ -47,9 +48,14 @@ const Graphic = () => {
 
         return Object.values(monthlyData);
     };
-    
+
     return (
-        <div className="bg-white p-6 rounded-xl shadow-lg w-[90%]">
+        <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 100 }}
+            transition={{ duration: 1.5 }}
+            className="bg-white p-6 rounded-xl shadow-lg w-[90%]"
+        >
             <h2 className="text-lg text-center font-semibold mb-4">Ingresos vs Gastos</h2>
             <ResponsiveContainer className="w-[90%]" width="90%" height={300}>
                 <BarChart data={monthly.slice(-3)}>
@@ -61,7 +67,7 @@ const Graphic = () => {
                     <Bar dataKey="gastos" fill="red" />
                 </BarChart>
             </ResponsiveContainer>
-        </div>
+        </motion.div>
     )
 }
 

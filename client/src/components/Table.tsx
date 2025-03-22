@@ -5,6 +5,7 @@ import clientAxios from "../utils/axios";
 import { deleteTransaction } from "../store/transactionReducer";
 import Row from "./Row";
 import { memo, useCallback } from "react";
+import { motion } from 'framer-motion'
 
 const Table = () => {
     const dispatch = useDispatch<AppDispatch>()
@@ -18,9 +19,13 @@ const Table = () => {
             })
             .catch(err => toast.error(err.response.data.message))
     }, [])
-    
+
     return (
-        <div className="w-[90%] bg-white p-4 rounded-xl shadow-md mb-6">
+        <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -100 }}
+            transition={{ duration: 1.5 }}
+            className="w-[90%] bg-white p-4 rounded-xl shadow-md mb-6">
             <h2 className="text-lg text-center font-semibold mb-4">Últimos Movimientos</h2>
             <table className="w-full border-collapse">
                 <thead>
@@ -37,7 +42,7 @@ const Table = () => {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </motion.div>
     )
 }
 

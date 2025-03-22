@@ -7,6 +7,7 @@ import clientAxios from "../utils/axios";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store";
 import { updateTransactions } from "../store/transactionReducer";
+import { motion } from 'framer-motion'
 
 interface Props {
     setModalForm: (modalForm: boolean) => void;
@@ -58,11 +59,15 @@ const ModalForm = ({ setModalForm }: Props) => {
                 toast.error(err.response.data.message)
             })
     };
-    
+
     return (
         <div className='custom_blur'>
-            <div className='fixed w-[90%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:w-1/2 min-h-[75vh] bg-white shadow-md rounded-lg p-8 border-1 border-[color:var(--color-primary)]' ref={popup}>
-                <h1 className='text-center text-[color:var(--color-primary)] mb-4 text-xl'>Nueva Transaccion</h1>
+            <motion.div
+                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: -50 }}
+                transition={{ duration: 0.5 }}
+                className='fixed w-[90%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:w-1/2 min-h-[75vh] bg-white shadow-md rounded-lg p-8 border-1 border-[color:var(--color-primary)]' ref={popup}>
+                <h1 className='text-center text-[color:var(--color-primary-dark)] font-bold mb-4 text-xl'>Nueva Transaccion</h1>
                 <div className='absolute text-[red] cursor-pointer right-[1.2rem] top-[1.2rem]' onClick={() => setModalForm(false)}>
                     <IoMdCloseCircle className="w-[25px] h-[25px]" />
                 </div>
@@ -81,12 +86,11 @@ const ModalForm = ({ setModalForm }: Props) => {
                             onChange={handleChange}
                         />
                     </div>
-
                     <button onClick={handleSave} className='text-xl hover:bg-[color:var(--color-primary-dark)] bg-[color:var(--color-primary)] text-white cursor-pointer mt-9 p-3 rounded-[5px] border-[none]'>
                         Aceptar
                     </button>
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }
