@@ -23,7 +23,7 @@ const Cards = () => {
   }, [transactions]);
 
   return (
-    <div className="mt-18 w-[90%] grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-3 gap-2">
+    <div className="sm:mt-22 w-[90%] grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-3 gap-2">
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -50 }}

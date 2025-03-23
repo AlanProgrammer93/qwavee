@@ -25,18 +25,18 @@ const Table = () => {
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: -100 }}
             transition={{ duration: 1.5 }}
-            className="w-[90%] bg-white p-4 rounded-xl shadow-md mb-6">
-            <h2 className="text-lg text-center font-semibold mb-4">Últimos Movimientos</h2>
-            <table className="w-full border-collapse">
-                <thead>
-                    <tr className="bg-[color:var(--color-primary-dark)] text-white">
-                        <th className="p-2">Categoría</th>
-                        <th className="p-2">Monto</th>
-                        <th className="p-2">Fecha</th>
-                        <th></th>
+            className="w-[90%] bg-white p-4 shadow-md mb-6">
+            <h2 className="font-bold text-lg mb-10">Últimos Movimientos</h2>
+            <table className="table-fixed w-full">
+                <thead className="text-left">
+                    <tr>
+                        <th className="w-1/2 pb-5 text-sm font-extrabold tracking-wide">Categoría</th>
+                        <th className="w-1/2 pb-5 text-sm font-extrabold tracking-wide">Monto</th>
+                        <th className="w-1/2 pb-5 text-sm font-extrabold tracking-wide">Fecha</th>
+                        <th className="w-1/4 pb-5 text-sm font-extrabold tracking-wide"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-left text-gray-600">
                     {transactions.slice(-5).map((t) => (
                         <Row key={t.id} transaction={t} handlerDelete={handlerDelete} />
                     ))}

@@ -10,16 +10,16 @@ interface Props {
 const Row = ({transaction, handlerDelete}: Props) => {
     
     return (
-        <tr className="border-t">
-            <td className="p-2 text-center">{transaction.category}</td>
-            <td className={`p-2 text-center ${transaction.type === "income" ? "text-green-600" : "text-red-600"}`}>
+        <tr>
+            <td className="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-left">{transaction.category}</td>
+            <td className={`w-1/4 mb-4 text-xs font-extrabold tracking-wider text-left ${transaction.type === "income" ? "text-green-600" : "text-red-500"}`}>
                 ${transaction.amount}
             </td>
-            <td className="p-2  text-center">{transaction.date}</td>
-            <td>
+            <td className="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-left">{transaction.date}</td>
+            <td className=' mb-4 text-xs font-extrabold tracking-wider text-left'>
                 <IoMdCloseCircle
                     onClick={() => handlerDelete(transaction.id)}
-                    className="w-[25px] h-[25px] text-[red] cursor-pointer"
+                    className="w-[23px] h-[23px] text-red-500 cursor-pointer"
                 />
             </td>
         </tr>

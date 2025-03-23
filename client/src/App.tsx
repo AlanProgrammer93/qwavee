@@ -8,11 +8,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTransactions } from './store/transactionReducer';
 import { AppDispatch, RootState } from './store';
 import Spinner from './components/Spinner';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const dispatch = useDispatch<AppDispatch>()
   const { loading } = useSelector((state: RootState) => state.transactions);
   const [modalForm, setModalForm] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false)
 
   useEffect(() => {
     dispatch(fetchTransactions());
@@ -24,14 +27,17 @@ function App() {
         loading ? <Spinner />
           : (
             <>
-              <button onClick={() => setModalForm(true)}
-                className="fixed z-999 text-lg w-[80%] px-4 py-2 bg-[color:var(--color-primary-dark)] text-white rounded-lg hover:bg-[color:var(--color-primary)] mt-4 cursor-pointer"
-              >
-                Nueva Transaccion
-              </button>
-              <Cards />
-              <Graphic />
-              <Table />
+              <Navbar state={showSidebar} setState={setShowSidebar} />
+              <div className='w-full flex gap-3'>
+                <div className='md:w-64'>
+                  <Sidebar state={showSidebar} setState={setShowSidebar} showModal={modalForm} setShowModal={setModalForm} />
+                </div>
+                <div className='flex-1 flex flex-col items-center gap-3'>
+                  <Cards />
+                  <Graphic />
+                  <Table />
+                </div>
+              </div>
             </>
           )
       }

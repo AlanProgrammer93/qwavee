@@ -4,9 +4,9 @@ import db from "../config/database";
 export const create = async (req: Request, res: Response): Promise<Response> => {
     const { type, category, amount } = req.body;
     
-    if (!type || !category || !amount) {
+    /* if (!type || !category || !amount) {
         return res.status(400).json({ message: "Todos los campos son obligatorios" });
-    }
+    } */
     try {
         db.run("INSERT INTO transactions (type, category, amount, date) VALUES (?, ?, ?, ?)",
             [type, category, amount, new Date().toISOString().split('T')[0]],
