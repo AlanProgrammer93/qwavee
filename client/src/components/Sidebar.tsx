@@ -7,11 +7,10 @@ interface Props {
 }
 
 const Sidebar = ({ state, setState, showModal, setShowModal }: Props) => {
-    
     return (
-        <div id="sideBar" className={`m-screen relative ${state && 'sm:block sm:z-9999 sm:absolute'} hidden md:top-20  md:block flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 animated faster`}>
+        <div className={`${state ? 'block' : 'hidden'} absolute z-9999 md:top-20 top-0 md:block flex-col flex-wrap bg-white border-r border-gray-300 p-6 flex-none w-64 animated faster`}>
             <div className="flex flex-col">
-                <div className={`text-right hidden ${state && 'sm:block'} md:hidden mb-4`}>
+                <div className={`text-right ${state ? 'block' : 'hidden'} md:hidden mb-4`}>
                     <button id="sideBarHideBtn" onClick={() => setState(!state)}>
                         <i className="fad fa-times-circle"></i>
                     </button>

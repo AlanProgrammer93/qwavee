@@ -71,7 +71,7 @@ const ModalForm = ({ setModalForm }: Props) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 initial={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.5 }}
-                className='fixed w-[90%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:w-1/2 min-h-[75vh] bg-white shadow-md rounded-lg p-8 border-1 border-teal-800' ref={popup}>
+                className='fixed w-[90%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:w-1/2 min-h-[70vh] bg-white shadow-md p-8 border-1 border-teal-800' ref={popup}>
                 <h1 className='text-center text-teal-800 font-bold mb-4 text-xl'>Nueva Transaccion</h1>
                 <div className='absolute text-red-500 cursor-pointer right-[1.2rem] top-[1.2rem]' onClick={() => setModalForm(false)}>
                     <IoMdCloseCircle className="w-[25px] h-[25px]" />
@@ -79,10 +79,10 @@ const ModalForm = ({ setModalForm }: Props) => {
                 <div className="flex flex-col">
                     <SelectCustom name="type" value={type} title="Tipo" items={["income", "expense"]} handleChange={handleChange} />
                     <SelectCustom name="category" value={category} title="Categoria" items={type === "income" ? CategoryIncome : CategoryExpense} handleChange={handleChange} />
-                    <div className='flex flex-col gap-[5px] mt-5 mb-2.5'>
-                        <h2 className="text-xl text-teal-800">Monto</h2>
+                    <div className='flex flex-col gap-[5px] mt-5 mb-2'>
+                        <h2 className="text-lg text-teal-800">Monto</h2>
                         <input
-                            className='border-teal-800 h-11 text-teal-800 font-[bold] pl-[15px] rounded-[10px] border-2 border-solid'
+                            className='border-teal-800 h-10 text-teal-800 font-[bold] pl-[15px] rounded-[10px] border-2 border-solid'
                             type={'number'}
                             min={1}
                             name={'amount'}

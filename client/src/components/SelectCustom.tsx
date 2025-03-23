@@ -8,13 +8,13 @@ interface Props {
 
 const SelectCustom = ({ name, title, items, value, handleChange }: Props) => {
     return (
-        <div className='flex flex-col gap-[5px] mt-5 mb-2.5'>
-            <h2 className="text-xl text-teal-800">{title}</h2>
+        <div className='flex flex-col gap-[5px] mt-5 mb-2'>
+            <h2 className="text-lg text-teal-800">{title}</h2>
             <select
                 name={name}
                 value={value}
                 onChange={handleChange}
-                className="border-teal-800 h-11 text-teal-800 text-base font-[bold] pl-[15px] rounded-[10px] border-2 border-solid"
+                className="border-teal-800 h-10 text-teal-800 text-base font-[bold] pl-[15px] rounded-[10px] border-2 border-solid"
             >
                 <option value="">-- Selecciona --</option>
                 {

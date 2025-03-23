@@ -56,7 +56,7 @@ const Graphic = () => {
             transition={{ duration: 1.5 }}
             className="bg-white p-6 shadow-lg w-[90%]"
         >
-            <h2 className="font-bold text-lg mb-10">Últimos Movimientos</h2>
+            <h2 className="font-bold text-lg mb-10">Ingresos vs Gastos</h2>
             <ResponsiveContainer className="w-[90%]" width="90%" height={300}>
                 <BarChart data={monthly.slice(-3)}>
                     <CartesianGrid strokeDasharray="3 3" />
