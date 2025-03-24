@@ -20,19 +20,19 @@ function App() {
   useEffect(() => {
     dispatch(fetchTransactions());
   }, []);
-
+  
   return (
-    <div className='flex flex-col items-center min-h-screen bg-gray-100 gap-5'>
+    <div className='flex flex-col items-center min-h-screen bg-gray-100'>
       {
         loading ? <Spinner />
           : (
             <>
               <Navbar state={showSidebar} setState={setShowSidebar} />
-              <div className='w-full flex gap-3'>
-                <div className='md:w-64'>
+              <div className='w-full flex'>
+                <div className='md:w-64 h-screen'>
                   <Sidebar state={showSidebar} setState={setShowSidebar} showModal={modalForm} setShowModal={setModalForm} />
                 </div>
-                <div className='flex-1 flex flex-col items-center gap-3'>
+                <div className='flex-1 flex flex-col items-center p-6 gap-3'>
                   <Cards />
                   <Graphic />
                   <Table />

@@ -54,8 +54,10 @@ const ModalForm = ({ setModalForm }: Props) => {
             return
         }
 
-        await clientAxios.post('/transaction', {...transaction, amount: Number(amount)})
+        await clientAxios.post('/transaction', {...transaction, amount: toFixedNumber(amount)})
             .then(res => {
+                console.log(res.data.transaction);
+                
                 setTransaction({ type: '', category: '', amount: '' })
                 dispatch(updateTransactions(res.data.transaction))
                 toast.success(res.data.message);
@@ -64,6 +66,11 @@ const ModalForm = ({ setModalForm }: Props) => {
                 toast.error(err.response.data.message)
             })
     };
+
+    function toFixedNumber(str: string) {
+        let num = parseFloat(str);
+        return isNaN(num) ? 0 : parseFloat(num.toFixed(2));
+    }
 
     return (
         <div className='custom_blur'>

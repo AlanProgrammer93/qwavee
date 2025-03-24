@@ -15,7 +15,7 @@ export const create = async (req: Request, res: Response): Promise<Response> => 
                 
                 return res.status(201).json({
                     message: "Transaccion Creada Correctamente.",
-                    transaction: { id: this.lastID, type, category, amount: parseInt(amount), date: new Date().toISOString().split('T')[0] }
+                    transaction: { id: this.lastID, type, category, amount, date: new Date().toISOString().split('T')[0] }
                 });
             }
         );

@@ -25,7 +25,7 @@ const Table = () => {
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: -100 }}
             transition={{ duration: 1.5 }}
-            className="w-[90%] bg-white p-4 shadow-md mb-6">
+            className="w-full bg-white p-4 shadow-md mb-6">
             <h2 className="font-bold text-lg mb-10">Últimos Movimientos</h2>
             <table className="table-fixed w-full">
                 <thead className="text-left">

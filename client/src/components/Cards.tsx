@@ -23,27 +23,27 @@ const Cards = () => {
   }, [transactions]);
 
   return (
-    <div className="sm:mt-22 w-[90%] grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-3 gap-2">
+    <div className="sm:mt-20 w-full grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-3 gap-2">
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: -50 }}
         transition={{ duration: 1 }}
       >
-        <Card title='Balance Actual' total={availableAmount} />
+        <Card title='Balance Actual' total={parseFloat(availableAmount.toFixed(2))} />
       </motion.div>
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1 }}
       >
-        <Card title='Ingresos' total={totalIncome} />
+        <Card title='Ingresos' total={parseFloat(totalIncome.toFixed(2))} />
       </motion.div>
       <motion.div
         whileInView={{ opacity: 1, x: 0 }}
         initial={{ opacity: 0, x: 50 }}
         transition={{ duration: 1 }}
       >
-        <Card title='Gastos' total={totalExpense} />
+        <Card title='Gastos' total={parseFloat(totalExpense.toFixed(2))} />
       </motion.div>
     </div>
   )

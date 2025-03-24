@@ -54,10 +54,10 @@ const Graphic = () => {
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 100 }}
             transition={{ duration: 1.5 }}
-            className="bg-white p-6 shadow-lg w-[90%]"
+            className="bg-white p-6 shadow-lg w-full"
         >
             <h2 className="font-bold text-lg mb-10">Ingresos vs Gastos</h2>
-            <ResponsiveContainer className="w-[90%]" width="90%" height={300}>
+            <ResponsiveContainer className="w-full" width="100%" height={300}>
                 <BarChart data={monthly.slice(-3)}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
